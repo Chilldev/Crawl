@@ -1,0 +1,25 @@
+create view product_list as
+
+select
+
+product.id as 'pro_id',
+product.name as'pro_name',
+
+supplier.id as 'supp_id',
+supplier.name as 'supp_name',
+
+product.sub_cat_id,
+
+product.cat_id,
+
+pro_location.price,
+pro_location.img_url,
+pro_location.product_url,
+pro_location.status
+from
+
+product , supplier , pro_location
+
+where
+
+product.id = pro_location.pro_id and pro_location.supp_id=supplier.id;
